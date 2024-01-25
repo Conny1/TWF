@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
+import ImageSlider from "./ImageSilder";
 
 const Container = styled.div`
   width: 300px;
 `;
 const Info = styled.div`
   padding: 10px;
+  button {
+    background-color: #fbd92d;
+    padding: 5px;
+    font-size: 500;
+
+    border: none;
+    width: 80%;
+    cursor: pointer;
+  }
 `;
 const Image = styled.div`
   width: 100%;
@@ -17,7 +27,11 @@ const Image = styled.div`
   }
 `;
 
-const Activities = () => {
+type Props = {
+  setgalery: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const Activities = ({ setgalery }: Props) => {
   return (
     <Container>
       <Image>
@@ -42,6 +56,7 @@ const Activities = () => {
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum, nemo
           est
         </p>
+        <button onClick={() => setgalery(true)}>Galery</button>
       </Info>
     </Container>
   );

@@ -8,6 +8,9 @@ import Activities from "./components/Activities";
 import Executives from "./components/Executives";
 import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { useState } from "react";
+import ContactUs from "./components/ContactUs";
+import ImageSlider from "./components/ImageSilder";
 
 const Main = styled.div`
   display: flex;
@@ -139,9 +142,11 @@ const Socials = styled.div`
 `;
 
 function App() {
+  const [galery, setgalery] = useState(false);
   return (
     <Main>
       <NavContainer>
+        s
         <img src={logo} alt="logo" />
         <Nav />
       </NavContainer>
@@ -165,17 +170,20 @@ function App() {
 
       <h2 style={{ fontSize: "30px", fontWeight: 500 }}>TWF Activities </h2>
       <ActivityContainer>
-        <Activities />
-        <Activities />
-        <Activities />
-        <Activities />
+        <Activities setgalery={setgalery} />
+        <Activities setgalery={setgalery} />
+        <Activities setgalery={setgalery} />
+        <Activities setgalery={setgalery} />
       </ActivityContainer>
+      {galery && <ImageSlider setgalery={setgalery} />}
+
       <ExecutivesContainer>
         <Executives />
         <Executives />
         <Executives />
         <Executives />
       </ExecutivesContainer>
+      <ContactUs />
 
       <Footer>
         <section>
@@ -184,8 +192,6 @@ function App() {
             <FaInstagram />
             <FaXTwitter />
           </Socials>
-
-          <button>Contact Us</button>
         </section>
       </Footer>
     </Main>
