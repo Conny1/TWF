@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { styled } from "styled-components";
-import ImageSlider from "./ImageSilder";
+import { mobileResponsive } from "../utils/resposive";
 
 const Container = styled.div`
   width: 300px;
+  ${mobileResponsive({
+    width: "auto",
+    flex: 1,
+  })}
 `;
 const Info = styled.div`
   padding: 10px;

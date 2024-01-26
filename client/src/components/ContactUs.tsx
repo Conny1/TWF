@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { mobileResponsive } from "../utils/resposive";
 
 // Styled components
 const ContactUsContainer = styled.div`
@@ -10,6 +11,9 @@ const ContactUsContainer = styled.div`
   background-color: #f8f8f8;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  ${mobileResponsive({
+    padding: "10px",
+  })}
 `;
 
 const Form = styled.form`

@@ -1,6 +1,8 @@
-import React from "react";
+import { useState } from "react";
 import { styled } from "styled-components";
-import { navLogoResponsive } from "../utils/resposive";
+import { navLogoResponsive, mobileResponsive } from "../utils/resposive";
+import { GiHamburgerMenu } from "react-icons/gi";
+import "../App.css";
 
 const Container = styled.div`
   /* outline: 1px solid red; */
@@ -12,6 +14,22 @@ const Container = styled.div`
   ${navLogoResponsive({
     width: "95%",
   })}
+  ${mobileResponsive({
+    justifyContent: "flex-end",
+  })}
+
+  button {
+    border: none;
+    outline: none;
+    display: none;
+    font-size: 30px;
+    background-color: transparent;
+
+    cursor: pointer;
+    ${mobileResponsive({
+      display: "block",
+    })}
+  }
 `;
 const LinkGroup = styled.div`
   max-width: 1000px;
@@ -26,6 +44,9 @@ const LinkGroup = styled.div`
     width: "100%",
     height: "100px",
   })}
+  ${mobileResponsive({
+    display: "none",
+  })}
 `;
 const Link = styled.a`
   font-size: 20px;
@@ -36,7 +57,26 @@ const Link = styled.a`
   }
 `;
 
+const ResponsiveLinkgroup = styled.div`
+  position: absolute;
+  top: 67px;
+  background-color: #fbd92dd1;
+  width: 100%;
+  outline: 1px solid gainsboro;
+  display: none;
+  flex-direction: column;
+
+  justify-content: space-between;
+  align-items: center;
+  height: 174px;
+
+  ${mobileResponsive({
+    display: "flex",
+  })}
+`;
+
 const Nav = () => {
+  const [resNav, setresNav] = useState(false);
   return (
     <Container>
       <LinkGroup>
@@ -46,6 +86,18 @@ const Nav = () => {
         <Link>Contact Us</Link>
         <Link>Login</Link>
       </LinkGroup>
+      {resNav && (
+        <ResponsiveLinkgroup className="scale-in-ver-top">
+          <Link>Projects</Link>
+          <Link>About</Link>
+          <Link>Donate</Link>
+          <Link>Contact Us</Link>
+          <Link>Login</Link>
+        </ResponsiveLinkgroup>
+      )}
+      <button onClick={() => setresNav(!resNav)}>
+        <GiHamburgerMenu />
+      </button>
     </Container>
   );
 };

@@ -1,5 +1,5 @@
-import React from "react";
 import { styled } from "styled-components";
+import { mobileResponsive } from "../utils/resposive";
 
 const Container = styled.div`
   width: 300px;
@@ -7,6 +7,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  ${mobileResponsive({
+    width: "100%",
+    flex: 1,
+  })}
 `;
 const UserInfo = styled.div`
   padding: 10px;
@@ -15,6 +19,9 @@ const UserInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  ${mobileResponsive({
+    padding: "5px",
+  })}
   p {
     margin: 0;
   }
@@ -26,6 +33,9 @@ const UserInfo = styled.div`
     border: none;
     width: 200px;
     cursor: pointer;
+    ${mobileResponsive({
+      width: "80%",
+    })}
   }
 `;
 const Image = styled.div`
@@ -70,7 +80,7 @@ const Executives = () => {
         </p>
         <p>user@gmail.com</p>
 
-        <button>Get Intouch</button>
+        {/* <button>Get Intouch</button> */}
       </UserInfo>
     </Container>
   );

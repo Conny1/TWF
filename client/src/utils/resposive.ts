@@ -8,3 +8,11 @@ export const navLogoResponsive = (props: Styles<object>) => {
     }
   `;
 };
+
+export const mobileResponsive = (props: Styles<object>) => {
+  return css`
+    @media only screen and (max-width: 700px) {
+      ${props}
+    }
+  `;
+};

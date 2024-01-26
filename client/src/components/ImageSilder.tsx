@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Slider from "react-slick";
+
 import styled from "styled-components";
+import { mobileResponsive } from "../utils/resposive";
 
 // Styled components
 const SliderContainer = styled.div`
@@ -18,9 +19,17 @@ const SliderContainer = styled.div`
   align-items: center;
   gap: 3px;
   background-color: #fbd92d55;
+  ${mobileResponsive({
+    position: "fixed",
+    top: "50%",
+    height: "500px",
+  })}
   section {
     width: 80%;
     height: 100%;
+    ${mobileResponsive({
+      width: "98%",
+    })}
   }
   button {
     height: fit-content;
@@ -28,8 +37,10 @@ const SliderContainer = styled.div`
     padding: 10px;
     background-color: #fbd92d;
     border: none;
-
     cursor: pointer;
+    ${mobileResponsive({
+      position: "absolute",
+    })}
   }
   img {
     height: 100%;
@@ -79,11 +90,26 @@ const ImageSlider = ({ setgalery }: Props) => {
       >
         close
       </button>
-      <button onClick={decrement}> prev</button>
+      <button
+        style={{
+          left: 0,
+        }}
+        onClick={decrement}
+      >
+        {" "}
+        prev
+      </button>
       <section>
         <img src={images[count]} alt="" />
       </section>
-      <button onClick={Increment}>next</button>
+      <button
+        style={{
+          right: 0,
+        }}
+        onClick={Increment}
+      >
+        next
+      </button>
     </SliderContainer>
   );
 };

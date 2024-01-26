@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import "./App.css";
 import Nav from "./components/Nav";
 import logo from "./assets/logo.png";
-import { navLogoResponsive } from "./utils/resposive";
+import { mobileResponsive, navLogoResponsive } from "./utils/resposive";
 import paralax from "./assets/paralax.jpeg";
 import Activities from "./components/Activities";
 import Executives from "./components/Executives";
@@ -67,6 +67,9 @@ const ParalaxIContainer = styled.div`
     margin-left: 30px;
     margin-top: 60px;
     color: #fff;
+    ${mobileResponsive({
+      fontSize: "30px",
+    })}
   }
 `;
 
@@ -86,6 +89,10 @@ const ActivityContainer = styled.div`
   flex-wrap: wrap;
   gap: 10px;
   justify-content: space-between;
+  ${mobileResponsive({
+    flexDirection: "column",
+    alignItems: "center",
+  })}
 `;
 
 const ExecutivesContainer = styled.div`
@@ -96,6 +103,10 @@ const ExecutivesContainer = styled.div`
   flex-wrap: wrap;
   gap: 10px;
   justify-content: space-between;
+  ${mobileResponsive({
+    flexDirection: "column",
+    alignItems: "center",
+  })}
 `;
 const Footer = styled.div`
   background-image: url(${paralax});
@@ -146,7 +157,6 @@ function App() {
   return (
     <Main>
       <NavContainer>
-        s
         <img src={logo} alt="logo" />
         <Nav />
       </NavContainer>
