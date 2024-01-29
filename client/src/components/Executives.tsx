@@ -49,24 +49,28 @@ const Image = styled.div`
     border-radius: 100px;
   }
 `;
+type Props = {
+  name: string;
+  email: string;
+  userpic: string;
+  seat: string;
+};
 
-const Executives = () => {
+const Executives = ({ name, email, userpic, seat }: Props) => {
   return (
     <Container>
       <Image>
-        <img
-          src="https://media.istockphoto.com/id/170625026/photo/giraffe-against-city-skyline.jpg?s=1024x1024&w=is&k=20&c=DcJCyuOGMMKYgAc1dWkwpHQcvbsj5RhuzVBPkBkPMJ8="
-          alt=""
-        />
+        <img src={userpic} alt="" />
       </Image>
       <UserInfo>
         <p
           style={{
             fontSize: "12px",
             color: "GrayText",
+            textTransform: "uppercase",
           }}
         >
-          HEAD OF REGIONAL HUBS
+          {seat}
         </p>
 
         <p
@@ -74,11 +78,12 @@ const Executives = () => {
             width: "200px",
             fontSize: "20px",
             fontWeight: 600,
+            textTransform: "capitalize",
           }}
         >
-          Conrad Mbuya
+          {name}
         </p>
-        <p>user@gmail.com</p>
+        <p>{email}</p>
 
         {/* <button>Get Intouch</button> */}
       </UserInfo>

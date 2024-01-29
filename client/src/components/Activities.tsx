@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 import { mobileResponsive } from "../utils/resposive";
+import ac1 from "../assets/ac1.jpeg";
 
 const Container = styled.div`
   width: 300px;
@@ -39,26 +40,25 @@ const Activities = ({ setgalery }: Props) => {
   return (
     <Container>
       <Image>
-        <img
-          src="https://media.istockphoto.com/id/170625026/photo/giraffe-against-city-skyline.jpg?s=1024x1024&w=is&k=20&c=DcJCyuOGMMKYgAc1dWkwpHQcvbsj5RhuzVBPkBkPMJ8="
-          alt=""
-        />
+        <img src={ac1} alt="" />
       </Image>
       <Info>
         <section>
-          <h3>Title</h3>
+          <h3>Bring Back the Green In The Park</h3>
           <p
             style={{
               fontSize: "10px",
             }}
           >
-            {new Date().toDateString()}
+            2nd Dec 2024
+            {/* {new Date().toDateString()} */}
           </p>
         </section>
 
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum, nemo
-          est
+          Engaged in tree planting activity and educational sessions on
+          anti-poaching effectively addressing both environmental and wildlife
+          conservation while preserving natural habitats.
         </p>
         <button onClick={() => setgalery(true)}>Galery</button>
       </Info>

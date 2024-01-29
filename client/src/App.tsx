@@ -1,22 +1,33 @@
 import { styled } from "styled-components";
 import "./App.css";
-import Nav from "./components/Nav";
+import {
+  Activities,
+  ImageSlider,
+  ContactUs,
+  Executives,
+  Nav,
+} from "./components";
 import logo from "./assets/logo.png";
 import { mobileResponsive, navLogoResponsive } from "./utils/resposive";
 import paralax from "./assets/paralax.jpeg";
-import Activities from "./components/Activities";
-import Executives from "./components/Executives";
 import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { useState } from "react";
-import ContactUs from "./components/ContactUs";
-import ImageSlider from "./components/ImageSilder";
+import val from "./assets/val.jpeg";
+import emp from "./assets/emp.jpeg";
+import ray from "./assets/ray.jpeg";
+import geo from "./assets/geo.jpeg";
+import bidan from "./assets/bidan.jpeg";
+import fatma from "./assets/fatma.jpeg";
+import conrad from "./assets/conrad.jpg";
 
 const Main = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
   align-items: center;
+
+  scroll-behavior: smooth;
 `;
 
 const NavContainer = styled.div`
@@ -77,7 +88,8 @@ const About = styled.div`
   width: 95%;
   max-width: 1000px;
   p {
-    font-size: 18px;
+    font-size: 20px;
+
     font-weight: 400;
   }
 `;
@@ -154,6 +166,50 @@ const Socials = styled.div`
 
 function App() {
   const [galery, setgalery] = useState(false);
+  const executives = [
+    {
+      name: "Rayner Sakari",
+      email: "delexxrayner@gmail.com",
+      userpic: ray,
+      seat: "Chair Person",
+    },
+    {
+      name: "fatma mohsmed",
+      email: "mfatma325@gmail.com",
+      userpic: fatma,
+      seat: "asst Chair Person",
+    },
+    {
+      name: "valerian kagwa",
+      email: "valeriakagwa@gmail.com",
+      userpic: val,
+      seat: "Head of finance",
+    },
+    {
+      name: "Beden Rex ",
+      email: "rexbedden@gmail.com",
+      userpic: bidan,
+      seat: "asst finance",
+    },
+    {
+      name: "george kigos ",
+      email: "kigosgeorge@gmail.com",
+      userpic: geo,
+      seat: "Program coordinater",
+    },
+    {
+      name: "empiris scholastica ",
+      email: "empirisscholastica@gmail.com",
+      userpic: emp,
+      seat: "asst Program coordinater",
+    },
+    {
+      name: "Eng Conrad Mbuya ",
+      email: "joelconrad277@gmail.com",
+      userpic: conrad,
+      seat: "asst Communication",
+    },
+  ];
   return (
     <Main>
       <NavContainer>
@@ -164,7 +220,15 @@ function App() {
       <ParalaxIContainer>
         <h1>Tujivunie Wildlife Foundation</h1>
       </ParalaxIContainer>
-      <About>
+      <About id="about">
+        <h2
+          style={{
+            fontWeight: "600",
+            textAlign: "center",
+          }}
+        >
+          About Us
+        </h2>
         <p>
           The mission of Tujivunie Wildlife Foundation is to safeguard wildlife
           and their habitats, supporting biodiversity and environmental
@@ -175,32 +239,40 @@ function App() {
           to join us—every person's contribution matters. Let's work together as
           warriors for Sustainable Development Goals 15 and 13! 💪🏼
         </p>
-        <button>Read More</button>
+        {/* <button>Read More</button> */}
       </About>
 
       <h2 style={{ fontSize: "30px", fontWeight: 500 }}>TWF Activities </h2>
-      <ActivityContainer>
-        <Activities setgalery={setgalery} />
-        <Activities setgalery={setgalery} />
-        <Activities setgalery={setgalery} />
+      <ActivityContainer id="activities">
         <Activities setgalery={setgalery} />
       </ActivityContainer>
       {galery && <ImageSlider setgalery={setgalery} />}
 
-      <ExecutivesContainer>
-        <Executives />
-        <Executives />
-        <Executives />
-        <Executives />
+      <ExecutivesContainer id="executives">
+        {executives.map((item, i) => {
+          return <Executives key={i} {...item} />;
+        })}
       </ExecutivesContainer>
-      <ContactUs />
+      <div style={{ width: "100%" }} id="contactus">
+        <ContactUs />
+      </div>
 
       <Footer>
         <section>
-          <p>{new Date().getFullYear()}rights reserved </p>
+          <p>@{new Date().getFullYear()}rights reserved </p>
           <Socials>
-            <FaInstagram />
-            <FaXTwitter />
+            <a
+              href="https://www.instagram.com/tw_foundation_?igsh=N2Vram9kdGJ1dzF2"
+              target="_blank"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://x.com/_TWF_23?t=AiIuEdGNqWwtLOnBhTLwUA&s=09"
+              target="_blank"
+            >
+              <FaXTwitter />
+            </a>
           </Socials>
         </section>
       </Footer>

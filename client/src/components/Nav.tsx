@@ -52,6 +52,8 @@ const Link = styled.a`
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
+  text-decoration: none;
+  color: slategrey;
   &:hover {
     color: #fbd92d;
   }
@@ -80,17 +82,17 @@ const Nav = () => {
   return (
     <Container>
       <LinkGroup>
-        <Link>Projects</Link>
-        <Link>About</Link>
-        <Link>Donate</Link>
-        <Link>Contact Us</Link>
+        <Link href="#activities">Projects</Link>
+        <Link href="#about">About</Link>
+        {/* <Link>Donate</Link> */}
+        <Link href="#contactus">Contact Us</Link>
         <Link>Login</Link>
       </LinkGroup>
       {resNav && (
         <ResponsiveLinkgroup className="scale-in-ver-top">
           <Link>Projects</Link>
           <Link>About</Link>
-          <Link>Donate</Link>
+          {/* <Link>Donate</Link> */}
           <Link>Contact Us</Link>
           <Link>Login</Link>
         </ResponsiveLinkgroup>

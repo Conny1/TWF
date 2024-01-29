@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-
 import styled from "styled-components";
 import { mobileResponsive } from "../utils/resposive";
+import c1 from "../assets/ac1.jpeg";
+import c2 from "../assets/ac2.jpeg";
+import c3 from "../assets/ac3.jpeg";
+import { GrNext, GrPrevious, GrClose } from "react-icons/gr";
 
 // Styled components
 const SliderContainer = styled.div`
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   padding: 3px;
   position: absolute;
   top: 45%;
@@ -33,7 +36,7 @@ const SliderContainer = styled.div`
   }
   button {
     height: fit-content;
-    font-size: 20px;
+    font-size: 26px;
     padding: 10px;
     background-color: #fbd92d;
     border: none;
@@ -55,14 +58,7 @@ type Props = {
 const ImageSlider = ({ setgalery }: Props) => {
   const [count, setcount] = useState(0);
 
-  // Replace these placeholder image URLs with your own image URLs
-  const images = [
-    "https://placekitten.com/800/400",
-    "https://placekitten.com/800/404",
-    "https://placekitten.com/800/401",
-
-    // Add more image URLs as needed
-  ];
+  const images = [c1, c2, c3];
 
   const Increment = () => {
     if (count === images.length - 1) {
@@ -88,7 +84,7 @@ const ImageSlider = ({ setgalery }: Props) => {
           top: 0,
         }}
       >
-        close
+        <GrClose />
       </button>
       <button
         style={{
@@ -96,8 +92,7 @@ const ImageSlider = ({ setgalery }: Props) => {
         }}
         onClick={decrement}
       >
-        {" "}
-        prev
+        <GrPrevious />
       </button>
       <section>
         <img src={images[count]} alt="" />
@@ -108,7 +103,7 @@ const ImageSlider = ({ setgalery }: Props) => {
         }}
         onClick={Increment}
       >
-        next
+        <GrNext />
       </button>
     </SliderContainer>
   );
